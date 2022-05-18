@@ -1,12 +1,10 @@
 /*
- * File:   main_Prelab.c
+ * File:   main_Lab.c
  * Author: Javier Alejandro Pérez Marín
  * 
- * Potenciómetro en AN0 que es convertido constantemente, pero al presionar 
- * un pb en RB0 PIC entra a Modo Sleep y se enciende de nuevo cuando termina
- * la interrupción.
+ * 
  *
- * Created on 16 de mayo de 2022, 01:32 PM
+ * Created on 17 de mayo de 2022, 07:39 PM
  */
 
 
@@ -44,7 +42,7 @@
 /*
  * VARIABLES
  */
-int bandera_off = 0;
+
 
 /*
  * PROTOTIPO DE FUNCIÓN
@@ -55,14 +53,14 @@ void __interrupt() isr(void){
     //Se revisa interrupción del PORTB
     if (INTCONbits.RBIF){
         if (!PORTBbits.RB0){ //Pb de SLEEP
-            bandera_off = 1; // Se da bandera para parar conversión
             PORTAbits.RA1 = 1; //Led para indicar que estamos en bajo consumo
             SLEEP(); //Se pone a mimir al PIC 
-        } else if (!PORTBbits.RB1){ //Pb de ON
-            bandera_off = 0; // Se da bandera para continuar conversión
-            PORTAbits.RA1 = 0; //Led para indicar que estamos en bajo consumo off
-        }
-        INTCONbits.RBIF = 0; // Limpiamos bandera PORTB 
+            __delay_ms(1000); //Delay de 1 seg pues la conversión es rápida
+            if(ADCON0bits.GO == 0){ // Si no hay proceso de conversión
+                ADCON0bits.GO = 1; // Se inicia proceso de conversión
+            } 
+           }
+         INTCONbits.RBIF = 0; // Limpiamos bandera ADC  
     }
     //Se revisa interrupción ADC
     if (PIR1bits.ADIF){       
@@ -80,11 +78,7 @@ void main(void) {
         
     while(1)
     {
-        if(!bandera_off){ //Siempre que esté encendido
-            if(ADCON0bits.GO == 0){ // Si no hay proceso de conversión
-            ADCON0bits.GO = 1; // Se inicia proceso de conversión
-            } 
-        }      
+        PORTAbits.RA1 = 0; //Se apaga LED que indica SLEEP
     }
 }
 
@@ -99,7 +93,6 @@ void setup(void){
     PORTA = 0;    //CLEAR DE PUERTO A 
     
     TRISBbits.TRISB0 = 1; //RB0 COMO INPUT
-    TRISBbits.TRISB1 = 1; //RB1 COMO INPUT
     PORTB = 0;      //CLEAR DE PUERTO B
     
     TRISC = 0; //PORTC como OUTPUT
@@ -108,7 +101,6 @@ void setup(void){
     //Pull-ups
     OPTION_REGbits.nRBPU = 0; // Se habilitan pull-up de PORTB
     WPUBbits.WPUB0 = 1; //Se habilita pull de RB0
-    WPUBbits.WPUB1 = 1; //Se habilita pull de RB1
     
     
     //Config ADC
@@ -126,6 +118,5 @@ void setup(void){
     PIR1bits.ADIF = 0; // Limpieza de bandera del ADC
     INTCONbits.RBIE = 1; //Se habilitan interrupciones del PORTB
     IOCBbits.IOCB0 = 1;  //Se habilitan interrupción por cambio de estado de RB0
-    IOCBbits.IOCB1 = 1;  //Se habilitan interrupción por cambio de estado de RB1
     INTCONbits.PEIE = 1; // Se habilitan interrupciones de periféricos
  }

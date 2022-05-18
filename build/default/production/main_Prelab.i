@@ -2648,21 +2648,26 @@ extern __bank0 __bit __timeout;
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
 # 37 "main_Prelab.c" 2
-# 52 "main_Prelab.c"
+# 47 "main_Prelab.c"
+int bandera_off = 0;
+
+
+
+
 void setup(void);
 
 void __attribute__((picinterrupt(("")))) isr(void){
 
     if (INTCONbits.RBIF){
         if (!PORTBbits.RB0){
+            bandera_off = 1;
             PORTAbits.RA1 = 1;
             __asm("sleep");
-            _delay((unsigned long)((1000)*(4000000/4000.0)));
-            if(ADCON0bits.GO == 0){
-                ADCON0bits.GO = 1;
-            }
-           }
-         INTCONbits.RBIF = 0;
+        } else if (!PORTBbits.RB1){
+            bandera_off = 0;
+            PORTAbits.RA1 = 0;
+        }
+        INTCONbits.RBIF = 0;
     }
 
     if (PIR1bits.ADIF){
@@ -2680,7 +2685,11 @@ void main(void) {
 
     while(1)
     {
-        PORTAbits.RA1 = 0;
+        if(!bandera_off){
+            if(ADCON0bits.GO == 0){
+            ADCON0bits.GO = 1;
+            }
+        }
     }
 }
 
@@ -2695,6 +2704,7 @@ void setup(void){
     PORTA = 0;
 
     TRISBbits.TRISB0 = 1;
+    TRISBbits.TRISB1 = 1;
     PORTB = 0;
 
     TRISC = 0;
@@ -2703,6 +2713,7 @@ void setup(void){
 
     OPTION_REGbits.nRBPU = 0;
     WPUBbits.WPUB0 = 1;
+    WPUBbits.WPUB1 = 1;
 
 
 
@@ -2720,5 +2731,6 @@ void setup(void){
     PIR1bits.ADIF = 0;
     INTCONbits.RBIE = 1;
     IOCBbits.IOCB0 = 1;
+    IOCBbits.IOCB1 = 1;
     INTCONbits.PEIE = 1;
  }
