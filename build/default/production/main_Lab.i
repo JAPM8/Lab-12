@@ -1,4 +1,4 @@
-# 1 "main_Prelab.c"
+# 1 "main_Lab.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main_Prelab.c" 2
-# 18 "main_Prelab.c"
+# 1 "main_Lab.c" 2
+# 17 "main_Lab.c"
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2644,17 +2644,19 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\xc.h" 2 3
-# 36 "main_Prelab.c" 2
+# 35 "main_Lab.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 37 "main_Prelab.c" 2
-# 47 "main_Prelab.c"
+# 36 "main_Lab.c" 2
+# 46 "main_Lab.c"
 int bandera_off = 0;
 
 
 
 
 void setup(void);
+uint8_t read_EEPROM(uint8_t address);
+void write_EEPROM(uint8_t address, uint8_t data);
 
 void __attribute__((picinterrupt(("")))) isr(void){
 
@@ -2663,9 +2665,13 @@ void __attribute__((picinterrupt(("")))) isr(void){
             bandera_off = 1;
             PORTAbits.RA1 = 1;
             __asm("sleep");
-        } else if (!PORTBbits.RB1){
+        } else if (PORTBbits.RB1 == 0 && bandera_off == 1){
             bandera_off = 0;
             PORTAbits.RA1 = 0;
+            PORTD = read_EEPROM(0);
+        }
+        else if (!PORTBbits.RB2){
+            write_EEPROM(0, ADRESH);
         }
         INTCONbits.RBIF = 0;
     }
@@ -2709,6 +2715,8 @@ void setup(void){
 
     TRISC = 0;
     PORTC = 0;
+    TRISD = 0;
+    PORTD = 0;
 
 
     OPTION_REGbits.nRBPU = 0;
@@ -2732,5 +2740,30 @@ void setup(void){
     INTCONbits.RBIE = 1;
     IOCBbits.IOCB0 = 1;
     IOCBbits.IOCB1 = 1;
+    IOCBbits.IOCB2 = 1;
     INTCONbits.PEIE = 1;
  }
+
+uint8_t read_EEPROM(uint8_t address){
+    EEADR = address;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.RD = 1;
+    return EEDAT;
+}
+void write_EEPROM(uint8_t address, uint8_t data){
+    EEADR = address;
+    EEDAT = data;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.WREN = 1;
+
+    INTCONbits.GIE = 0;
+
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+
+    EECON1bits.WR = 1;
+
+    EECON1bits.WREN = 0;
+    INTCONbits.RBIF = 0;
+    INTCONbits.GIE = 1;
+}

@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\javyp\AppData\Local\Temp\xcAscec.o
+$C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
 idloc IDLOC 5 2000 2000 4 2 1
 reset_vec CODE 0 0 0 3 2 1
 end_init CODE 0 C C 3 2 1
@@ -19,12 +19,14 @@ config CONFIG 4 2007 2007 2 2 1
 $dist/default/production\Lab_12.X.production.o
 cinit CODE 0 F F 6 2 1
 idloc IDLOC 5 2000 2000 4 2 1
-text1 CODE 0 15 15 47 2 1
-text2 CODE 0 5C 5C 32 2 1
-maintext CODE 0 8E 8E 16 2 1
-cstackCOMMON COMMON 1 70 70 4 1 1
+text1 CODE 0 65 65 4E 2 1
+text2 CODE 0 15 15 50 2 1
+text3 CODE 0 C9 C9 15 2 1
+text4 CODE 0 DE DE D 2 1
+maintext CODE 0 B3 B3 16 2 1
+cstackCOMMON COMMON 1 70 70 6 1 1
 intentry CODE 0 4 4 8 2 1
-bssCOMMON COMMON 1 74 74 2 1 1
+bssCOMMON COMMON 1 76 76 2 1 1
 config CONFIG 4 2007 2007 2 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -41,21 +43,21 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST A4-1FFF 2
+CONST EB-1FFF 2
 ENTRY 3-3 2
-ENTRY A4-1FFF 2
+ENTRY EB-1FFF 2
 CODE 3-3 2
-CODE A4-1FFF 2
+CODE EB-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
-COMMON 76-7D 1
+COMMON 78-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE A4-1FFF 2
+STRCODE EB-1FFF 2
 STRING 3-3 2
-STRING A4-1FFF 2
+STRING EB-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -70,65 +72,91 @@ STRING A4-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab_12.X.production.o
-F cinit CODE >469:C:\Users\javyp\AppData\Local\Temp\xcAscec.s
-F cinit CODE >472:C:\Users\javyp\AppData\Local\Temp\xcAscec.s
-F cinit CODE >483:C:\Users\javyp\AppData\Local\Temp\xcAscec.s
-10 cinit CODE >484:C:\Users\javyp\AppData\Local\Temp\xcAscec.s
-11 cinit CODE >490:C:\Users\javyp\AppData\Local\Temp\xcAscec.s
-11 cinit CODE >492:C:\Users\javyp\AppData\Local\Temp\xcAscec.s
-12 cinit CODE >493:C:\Users\javyp\AppData\Local\Temp\xcAscec.s
-4 intentry CODE >54:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-5C text2 CODE >54:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-5C text2 CODE >56:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-60 text2 CODE >57:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-66 text2 CODE >58:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-6A text2 CODE >59:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-6B text2 CODE >60:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-6C text2 CODE >61:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-71 text2 CODE >62:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-73 text2 CODE >63:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-74 text2 CODE >65:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-75 text2 CODE >68:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-7B text2 CODE >69:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-80 text2 CODE >69:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-84 text2 CODE >70:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-86 text2 CODE >72:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-87 text2 CODE >75:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-15 text1 CODE >91:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-15 text1 CODE >92:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-19 text1 CODE >93:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-1A text1 CODE >95:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-20 text1 CODE >96:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-21 text1 CODE >98:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-23 text1 CODE >99:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-26 text1 CODE >101:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-29 text1 CODE >102:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-2A text1 CODE >103:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-2D text1 CODE >105:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-30 text1 CODE >106:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-33 text1 CODE >109:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-36 text1 CODE >110:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-37 text1 CODE >111:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-38 text1 CODE >115:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-3C text1 CODE >116:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-3F text1 CODE >117:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-40 text1 CODE >118:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-44 text1 CODE >119:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-47 text1 CODE >120:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-4A text1 CODE >121:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-4E text1 CODE >124:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-4F text1 CODE >125:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-52 text1 CODE >126:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-55 text1 CODE >127:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-56 text1 CODE >128:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-59 text1 CODE >129:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-5A text1 CODE >130:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-5B text1 CODE >131:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-8E maintext CODE >77:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-8E maintext CODE >79:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-93 maintext CODE >83:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-99 maintext CODE >84:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
-9F maintext CODE >85:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Prelab.c
+F cinit CODE >483:C:\Users\javyp\AppData\Local\Temp\xcAsc90.s
+F cinit CODE >486:C:\Users\javyp\AppData\Local\Temp\xcAsc90.s
+F cinit CODE >497:C:\Users\javyp\AppData\Local\Temp\xcAsc90.s
+10 cinit CODE >498:C:\Users\javyp\AppData\Local\Temp\xcAsc90.s
+11 cinit CODE >504:C:\Users\javyp\AppData\Local\Temp\xcAsc90.s
+11 cinit CODE >506:C:\Users\javyp\AppData\Local\Temp\xcAsc90.s
+12 cinit CODE >507:C:\Users\javyp\AppData\Local\Temp\xcAsc90.s
+4 intentry CODE >55:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+DE text4 CODE >141:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+DF text4 CODE >142:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+E3 text4 CODE >143:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+E6 text4 CODE >144:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+E7 text4 CODE >145:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+EA text4 CODE >146:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+C9 text3 CODE >147:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+CA text3 CODE >148:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+CE text3 CODE >149:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+D0 text3 CODE >150:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+D3 text3 CODE >151:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+D4 text3 CODE >153:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+D5 text3 CODE >155:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+D7 text3 CODE >156:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+D9 text3 CODE >158:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+DA text3 CODE >160:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+DB text3 CODE >161:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+DC text3 CODE >162:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+DD text3 CODE >163:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+15 text2 CODE >55:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+15 text2 CODE >57:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+19 text2 CODE >58:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+1F text2 CODE >59:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+23 text2 CODE >60:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+24 text2 CODE >61:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+25 text2 CODE >62:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+30 text2 CODE >63:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+32 text2 CODE >64:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+33 text2 CODE >65:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+3C text2 CODE >66:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+3D text2 CODE >67:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+41 text2 CODE >68:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+4B text2 CODE >70:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+4C text2 CODE >73:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+52 text2 CODE >74:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+57 text2 CODE >74:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+5B text2 CODE >75:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+5D text2 CODE >77:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+5E text2 CODE >80:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+65 text1 CODE >96:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+65 text1 CODE >97:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+69 text1 CODE >98:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+6A text1 CODE >100:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+70 text1 CODE >101:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+71 text1 CODE >103:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+73 text1 CODE >104:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+76 text1 CODE >106:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+79 text1 CODE >107:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+7A text1 CODE >108:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+7D text1 CODE >110:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+80 text1 CODE >111:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+83 text1 CODE >112:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+86 text1 CODE >113:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+89 text1 CODE >116:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+8C text1 CODE >117:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+8D text1 CODE >118:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+8E text1 CODE >122:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+92 text1 CODE >123:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+95 text1 CODE >124:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+96 text1 CODE >125:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+9A text1 CODE >126:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+9D text1 CODE >127:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+A0 text1 CODE >128:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+A4 text1 CODE >131:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+A5 text1 CODE >132:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+A8 text1 CODE >133:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+AB text1 CODE >134:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+AC text1 CODE >135:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+AF text1 CODE >136:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+B0 text1 CODE >137:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+B1 text1 CODE >138:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+B2 text1 CODE >139:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+B3 maintext CODE >82:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+B3 maintext CODE >84:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+B8 maintext CODE >88:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+BE maintext CODE >89:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
+C4 maintext CODE >90:C:\Users\javyp\OneDrive\Documentos\UNIVERSIDAD\Progra_MICROS\Lab_12_EEPROM\Lab 12.X\main_Lab.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -142,26 +170,29 @@ F cinit CODE >483:C:\Users\javyp\AppData\Local\Temp\xcAscec.s
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\Lab_12.X.production.o
-__Hspace_0 A4 0 ABS 0 - -
-__Hspace_1 76 0 ABS 0 - -
+__Hspace_0 EB 0 ABS 0 - -
+__Hspace_1 78 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__end_of_write_EEPROM 1BC 0 CODE 0 text3 dist/default/production\Lab_12.X.production.o
+write_EEPROM@data 70 0 COMMON 1 cstackCOMMON dist/default/production\Lab_12.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\javyp\AppData\Local\Temp\xcAscec.o
-_main 11C 0 CODE 0 maintext dist/default/production\Lab_12.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
+_main 166 0 CODE 0 maintext dist/default/production\Lab_12.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab_12.X.production.o
-start 18 0 CODE 0 init C:\Users\javyp\AppData\Local\Temp\xcAscec.o
+start 18 0 CODE 0 init C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OPTION_REGbits 81 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAscec.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAscec.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAscec.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAscec.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAscec.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAscec.o
+_read_EEPROM 1BC 0 CODE 0 text4 dist/default/production\Lab_12.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab_12.X.production.o
@@ -169,13 +200,15 @@ __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 _ADRESH 1E 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\Lab_12.X.production.o
+_EECON1bits 18C 0 ABS 0 - dist/default/production\Lab_12.X.production.o
+_EECON2 18D 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\javyp\AppData\Local\Temp\xcAscec.o
-___stacklo 0 0 ABS 0 - C:\Users\javyp\AppData\Local\Temp\xcAscec.o
+___stackhi 0 0 ABS 0 - C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
+___stacklo 0 0 ABS 0 - C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
 _WPUBbits 95 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Lab_12.X.production.o
 _TRISBbits 86 0 ABS 0 - dist/default/production\Lab_12.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\javyp\AppData\Local\Temp\xcAscec.o
+___int_sp 0 0 STACK 2 stack C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -213,16 +246,17 @@ __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__S0 A4 0 ABS 0 - -
-__S1 76 0 ABS 0 - -
+__S0 EB 0 ABS 0 - -
+__S1 78 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_isr B8 0 CODE 0 text2 dist/default/production\Lab_12.X.production.o
+_isr 2A 0 CODE 0 text2 dist/default/production\Lab_12.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Lab_12.X.production.o
-__end_of_isr 11C 0 CODE 0 text2 dist/default/production\Lab_12.X.production.o
+__end_of_read_EEPROM 1D6 0 CODE 0 text4 dist/default/production\Lab_12.X.production.o
+__end_of_isr CA 0 CODE 0 text2 dist/default/production\Lab_12.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\javyp\AppData\Local\Temp\xcAscec.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\javyp\AppData\Local\Temp\xcAsc90.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Lab_12.X.production.o
-__pmaintext 11C 0 CODE 0 maintext dist/default/production\Lab_12.X.production.o
+__pmaintext 166 0 CODE 0 maintext dist/default/production\Lab_12.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 _ADCON0bits 1F 0 ABS 0 - dist/default/production\Lab_12.X.production.o
@@ -232,38 +266,47 @@ __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__pbssCOMMON 74 0 COMMON 1 bssCOMMON dist/default/production\Lab_12.X.production.o
+__pbssCOMMON 76 0 COMMON 1 bssCOMMON dist/default/production\Lab_12.X.production.o
 _PIR1bits C 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 __Lend_init 18 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+read_EEPROM@address 70 0 COMMON 1 cstackCOMMON dist/default/production\Lab_12.X.production.o
 end_of_initialization 22 0 CODE 0 cinit dist/default/production\Lab_12.X.production.o
 __Hintentry 18 0 CODE 0 intentry -
+write_EEPROM@address 71 0 COMMON 1 cstackCOMMON dist/default/production\Lab_12.X.production.o
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 6 0 CODE 0 reset_vec -
-__ptext1 2A 0 CODE 0 text1 dist/default/production\Lab_12.X.production.o
-__ptext2 B8 0 CODE 0 text2 dist/default/production\Lab_12.X.production.o
+__ptext1 CA 0 CODE 0 text1 dist/default/production\Lab_12.X.production.o
+__ptext2 2A 0 CODE 0 text2 dist/default/production\Lab_12.X.production.o
+__ptext3 192 0 CODE 0 text3 dist/default/production\Lab_12.X.production.o
+__ptext4 1BC 0 CODE 0 text4 dist/default/production\Lab_12.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of__initialization 22 0 CODE 0 cinit dist/default/production\Lab_12.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
-_bandera_off 74 0 COMMON 1 bssCOMMON dist/default/production\Lab_12.X.production.o
+_bandera_off 76 0 COMMON 1 bssCOMMON dist/default/production\Lab_12.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Lab_12.X.production.o
+_write_EEPROM 192 0 CODE 0 text3 dist/default/production\Lab_12.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-__end_of_main 148 0 CODE 0 maintext dist/default/production\Lab_12.X.production.o
+__end_of_main 192 0 CODE 0 maintext dist/default/production\Lab_12.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Lab_12.X.production.o
+_EEADR 10D 0 ABS 0 - dist/default/production\Lab_12.X.production.o
+_EEDAT 10C 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 _PORTC 7 0 ABS 0 - dist/default/production\Lab_12.X.production.o
+_PORTD 8 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 _TRISA 85 0 ABS 0 - dist/default/production\Lab_12.X.production.o
 _TRISC 87 0 ABS 0 - dist/default/production\Lab_12.X.production.o
-__end_of_setup B8 0 CODE 0 text1 dist/default/production\Lab_12.X.production.o
+_TRISD 88 0 ABS 0 - dist/default/production\Lab_12.X.production.o
+__end_of_setup 166 0 CODE 0 text1 dist/default/production\Lab_12.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\Lab_12.X.production.o
 _IOCBbits 96 0 ABS 0 - dist/default/production\Lab_12.X.production.o
-_setup 2A 0 CODE 0 text1 dist/default/production\Lab_12.X.production.o
+_setup CA 0 CODE 0 text1 dist/default/production\Lab_12.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Lab_12.X.production.o
 __initialization 1E 0 CODE 0 cinit dist/default/production\Lab_12.X.production.o
 # %SPLITSTAB Section
@@ -291,8 +334,8 @@ __initialization 1E 0 CODE 0 cinit dist/default/production\Lab_12.X.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cstackCOMMON 1 70 70 6 1
-intentry 0 4 8 A0 2
+cstackCOMMON 1 70 70 8 1
+intentry 0 4 8 E7 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

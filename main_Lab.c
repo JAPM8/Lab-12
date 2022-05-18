@@ -2,11 +2,12 @@
  * File:   main_Lab.c
  * Author: Javier Alejandro Pérez Marín
  * 
- * 
+ * Potenciómetro en AN0 que es convertido constantemente, pero al presionar 
+ * un pb en RB0 PIC entra a Modo SleeP, se enciende de nuevo con RB1 y muestra 
+ * el último valor guardado en la EEPROm y se guarda con RB2
  *
  * Created on 17 de mayo de 2022, 07:39 PM
  */
-
 
 // PIC16F887 Configuration Bit Settings
 
@@ -37,30 +38,36 @@
 /*
  * CONSTANTES
  */
-#define _XTAL_FREQ 4000000
+#define _XTAL_FREQ 4000000 //OSSCON A 4 MHz
 
 /*
  * VARIABLES
  */
-
+int bandera_off = 0; //Bandera que indica estado ON/OFF
 
 /*
  * PROTOTIPO DE FUNCIÓN
  */
 void setup(void);
+uint8_t read_EEPROM(uint8_t address); //Función para lectura de EEPROM
+void write_EEPROM(uint8_t address, uint8_t data); //Función que escritura en EEPROM
 
 void __interrupt() isr(void){
     //Se revisa interrupción del PORTB
     if (INTCONbits.RBIF){
         if (!PORTBbits.RB0){ //Pb de SLEEP
+            bandera_off = 1; // Se da bandera para parar conversión
             PORTAbits.RA1 = 1; //Led para indicar que estamos en bajo consumo
             SLEEP(); //Se pone a mimir al PIC 
-            __delay_ms(1000); //Delay de 1 seg pues la conversión es rápida
-            if(ADCON0bits.GO == 0){ // Si no hay proceso de conversión
-                ADCON0bits.GO = 1; // Se inicia proceso de conversión
-            } 
-           }
-         INTCONbits.RBIF = 0; // Limpiamos bandera ADC  
+        } else if (PORTBbits.RB1 == 0 && bandera_off == 1){ //Pb de ON solo si está dormido
+            bandera_off = 0; // Se da bandera para continuar conversión
+            PORTAbits.RA1 = 0; //Led para indicar que estamos en bajo consumo off
+            PORTD = read_EEPROM(0); //Se muestra en PORTD valor de ADRESH guardado
+        }
+        else if (!PORTBbits.RB2){ //Pb de SAVE
+            write_EEPROM(0, ADRESH); //Se escribe en la dirección 0 de la EEPROM el ADRESH
+        }
+        INTCONbits.RBIF = 0; // Limpiamos bandera PORTB 
     }
     //Se revisa interrupción ADC
     if (PIR1bits.ADIF){       
@@ -78,7 +85,11 @@ void main(void) {
         
     while(1)
     {
-        PORTAbits.RA1 = 0; //Se apaga LED que indica SLEEP
+        if(!bandera_off){ //Siempre que esté encendido
+            if(ADCON0bits.GO == 0){ // Si no hay proceso de conversión
+            ADCON0bits.GO = 1; // Se inicia proceso de conversión
+            } 
+        }      
     }
 }
 
@@ -93,14 +104,18 @@ void setup(void){
     PORTA = 0;    //CLEAR DE PUERTO A 
     
     TRISBbits.TRISB0 = 1; //RB0 COMO INPUT
+    TRISBbits.TRISB1 = 1; //RB1 COMO INPUT
     PORTB = 0;      //CLEAR DE PUERTO B
     
     TRISC = 0; //PORTC como OUTPUT
     PORTC = 0; //CLEAR DE PUERTO C
+    TRISD = 0; //PORTD como OUTPUT
+    PORTD = 0; //CLEAR DE PUERTO D
     
     //Pull-ups
     OPTION_REGbits.nRBPU = 0; // Se habilitan pull-up de PORTB
     WPUBbits.WPUB0 = 1; //Se habilita pull de RB0
+    WPUBbits.WPUB1 = 1; //Se habilita pull de RB1
     
     
     //Config ADC
@@ -118,5 +133,31 @@ void setup(void){
     PIR1bits.ADIF = 0; // Limpieza de bandera del ADC
     INTCONbits.RBIE = 1; //Se habilitan interrupciones del PORTB
     IOCBbits.IOCB0 = 1;  //Se habilitan interrupción por cambio de estado de RB0
+    IOCBbits.IOCB1 = 1;  //Se habilitan interrupción por cambio de estado de RB1
+    IOCBbits.IOCB2 = 1;  //Se habilitan interrupción por cambio de estado de RB2
     INTCONbits.PEIE = 1; // Se habilitan interrupciones de periféricos
  }
+
+uint8_t read_EEPROM(uint8_t address){
+    EEADR = address; //Se carga address
+    EECON1bits.EEPGD = 0; // Se indica lectura a la EEPROM
+    EECON1bits.RD = 1; // Se obtiene el dato de la EEPROM
+    return EEDAT;  // La función regresa el dato 
+}
+void write_EEPROM(uint8_t address, uint8_t data){
+    EEADR = address; //Se carga dirección
+    EEDAT = data; //Se carga dato
+    EECON1bits.EEPGD = 0; // Se indica modo escritura a la EEPROM
+    EECON1bits.WREN = 1; // Se habilita escritura en la EEPROM
+    
+    INTCONbits.GIE = 0; // Se deshabilitan interrupciones
+    // Secuencia para iniciar escritura
+    EECON2 = 0x55;      
+    EECON2 = 0xAA;
+    
+    EECON1bits.WR = 1;  // Se inicia escritura
+    
+    EECON1bits.WREN = 0; // Se deshabilita escritura en la EEPROM
+    INTCONbits.RBIF = 0; // Se limpian interrupciones del puerto B
+    INTCONbits.GIE = 1;  // Se habilitan interrupciones
+}

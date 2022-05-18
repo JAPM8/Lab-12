@@ -3,8 +3,7 @@
  * Author: Javier Alejandro Pérez Marín
  * 
  * Potenciómetro en AN0 que es convertido constantemente, pero al presionar 
- * un pb en RB0 PIC entra a Modo Sleep y se enciende de nuevo cuando termina
- * la interrupción.
+ * un pb en RB0 PIC entra a Modo Sleep y se enciende de nuevo con RB1
  *
  * Created on 16 de mayo de 2022, 01:32 PM
  */
