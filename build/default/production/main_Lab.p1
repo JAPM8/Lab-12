@@ -686,121 +686,124 @@ Version 4.0 HI-TECH Software Intermediate Code
 "118
 [; ;main_Lab.c: 118:     WPUBbits.WPUB1 = 1;
 [e = . . _WPUBbits 1 1 -> -> 1 `i `uc ]
-"122
-[; ;main_Lab.c: 122:     ADCON0bits.ADCS = 0b11;
-[e = . . _ADCON0bits 0 3 -> -> 3 `i `uc ]
+"119
+[; ;main_Lab.c: 119:     WPUBbits.WPUB2 = 1;
+[e = . . _WPUBbits 1 2 -> -> 1 `i `uc ]
 "123
-[; ;main_Lab.c: 123:     ADCON1bits.VCFG0 = 0;
-[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;main_Lab.c: 123:     ADCON0bits.ADCS = 0b11;
+[e = . . _ADCON0bits 0 3 -> -> 3 `i `uc ]
 "124
-[; ;main_Lab.c: 124:     ADCON1bits.VCFG1 = 0;
-[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;main_Lab.c: 124:     ADCON1bits.VCFG0 = 0;
+[e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
 "125
-[; ;main_Lab.c: 125:     ADCON0bits.CHS = 0b0000;
-[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
+[; ;main_Lab.c: 125:     ADCON1bits.VCFG1 = 0;
+[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
 "126
-[; ;main_Lab.c: 126:     ADCON1bits.ADFM = 0;
-[e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
+[; ;main_Lab.c: 126:     ADCON0bits.CHS = 0b0000;
+[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
 "127
-[; ;main_Lab.c: 127:     ADCON0bits.ADON = 1;
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;main_Lab.c: 127:     ADCON1bits.ADFM = 0;
+[e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
 "128
-[; ;main_Lab.c: 128:     _delay((unsigned long)((40)*(4000000/4000000.0)));
+[; ;main_Lab.c: 128:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+"129
+[; ;main_Lab.c: 129:     _delay((unsigned long)((40)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"131
-[; ;main_Lab.c: 131:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "132
-[; ;main_Lab.c: 132:     PIE1bits.ADIE = 1;
-[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+[; ;main_Lab.c: 132:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "133
-[; ;main_Lab.c: 133:     PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;main_Lab.c: 133:     PIE1bits.ADIE = 1;
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
 "134
-[; ;main_Lab.c: 134:     INTCONbits.RBIE = 1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;main_Lab.c: 134:     PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "135
-[; ;main_Lab.c: 135:     IOCBbits.IOCB0 = 1;
-[e = . . _IOCBbits 1 0 -> -> 1 `i `uc ]
+[; ;main_Lab.c: 135:     INTCONbits.RBIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
 "136
-[; ;main_Lab.c: 136:     IOCBbits.IOCB1 = 1;
-[e = . . _IOCBbits 1 1 -> -> 1 `i `uc ]
+[; ;main_Lab.c: 136:     IOCBbits.IOCB0 = 1;
+[e = . . _IOCBbits 1 0 -> -> 1 `i `uc ]
 "137
-[; ;main_Lab.c: 137:     IOCBbits.IOCB2 = 1;
-[e = . . _IOCBbits 1 2 -> -> 1 `i `uc ]
+[; ;main_Lab.c: 137:     IOCBbits.IOCB1 = 1;
+[e = . . _IOCBbits 1 1 -> -> 1 `i `uc ]
 "138
-[; ;main_Lab.c: 138:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;main_Lab.c: 138:     IOCBbits.IOCB2 = 1;
+[e = . . _IOCBbits 1 2 -> -> 1 `i `uc ]
 "139
-[; ;main_Lab.c: 139:  }
+[; ;main_Lab.c: 139:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"140
+[; ;main_Lab.c: 140:  }
 [e :UE 153 ]
 }
-"141
-[; ;main_Lab.c: 141: uint8_t read_EEPROM(uint8_t address){
+"142
+[; ;main_Lab.c: 142: uint8_t read_EEPROM(uint8_t address){
 [v _read_EEPROM `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _read_EEPROM ]
 [v _address `uc ~T0 @X0 1 r1 ]
 [f ]
-"142
-[; ;main_Lab.c: 142:     EEADR = address;
-[e = _EEADR _address ]
 "143
-[; ;main_Lab.c: 143:     EECON1bits.EEPGD = 0;
-[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+[; ;main_Lab.c: 143:     EEADR = address;
+[e = _EEADR _address ]
 "144
-[; ;main_Lab.c: 144:     EECON1bits.RD = 1;
-[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+[; ;main_Lab.c: 144:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
 "145
-[; ;main_Lab.c: 145:     return EEDAT;
+[; ;main_Lab.c: 145:     EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+"146
+[; ;main_Lab.c: 146:     return EEDAT;
 [e ) _EEDAT ]
 [e $UE 154  ]
-"146
-[; ;main_Lab.c: 146: }
+"147
+[; ;main_Lab.c: 147: }
 [e :UE 154 ]
 }
-"147
-[; ;main_Lab.c: 147: void write_EEPROM(uint8_t address, uint8_t data){
+"148
+[; ;main_Lab.c: 148: void write_EEPROM(uint8_t address, uint8_t data){
 [v _write_EEPROM `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _write_EEPROM ]
 [v _address `uc ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
 [f ]
-"148
-[; ;main_Lab.c: 148:     EEADR = address;
-[e = _EEADR _address ]
 "149
-[; ;main_Lab.c: 149:     EEDAT = data;
-[e = _EEDAT _data ]
+[; ;main_Lab.c: 149:     EEADR = address;
+[e = _EEADR _address ]
 "150
-[; ;main_Lab.c: 150:     EECON1bits.EEPGD = 0;
-[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+[; ;main_Lab.c: 150:     EEDAT = data;
+[e = _EEDAT _data ]
 "151
-[; ;main_Lab.c: 151:     EECON1bits.WREN = 1;
+[; ;main_Lab.c: 151:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+"152
+[; ;main_Lab.c: 152:     EECON1bits.WREN = 1;
 [e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
-"153
-[; ;main_Lab.c: 153:     INTCONbits.GIE = 0;
+"154
+[; ;main_Lab.c: 154:     INTCONbits.GIE = 0;
 [e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
-"155
-[; ;main_Lab.c: 155:     EECON2 = 0x55;
-[e = _EECON2 -> -> 85 `i `uc ]
 "156
-[; ;main_Lab.c: 156:     EECON2 = 0xAA;
+[; ;main_Lab.c: 156:     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"157
+[; ;main_Lab.c: 157:     EECON2 = 0xAA;
 [e = _EECON2 -> -> 170 `i `uc ]
-"158
-[; ;main_Lab.c: 158:     EECON1bits.WR = 1;
+"159
+[; ;main_Lab.c: 159:     EECON1bits.WR = 1;
 [e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
-"160
-[; ;main_Lab.c: 160:     EECON1bits.WREN = 0;
-[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
 "161
-[; ;main_Lab.c: 161:     INTCONbits.RBIF = 0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;main_Lab.c: 161:     EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
 "162
-[; ;main_Lab.c: 162:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main_Lab.c: 162:     INTCONbits.RBIF = 0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
 "163
-[; ;main_Lab.c: 163: }
+[; ;main_Lab.c: 163:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"164
+[; ;main_Lab.c: 164: }
 [e :UE 155 ]
 }

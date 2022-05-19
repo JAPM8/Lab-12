@@ -4,7 +4,7 @@
  * 
  * Potenciómetro en AN0 que es convertido constantemente, pero al presionar 
  * un pb en RB0 PIC entra a Modo SleeP, se enciende de nuevo con RB1 y muestra 
- * el último valor guardado en la EEPROm y se guarda con RB2
+ * el último valor guardado en la EEPROM y se guarda con RB2
  *
  * Created on 17 de mayo de 2022, 07:39 PM
  */
@@ -105,6 +105,7 @@ void setup(void){
     
     TRISBbits.TRISB0 = 1; //RB0 COMO INPUT
     TRISBbits.TRISB1 = 1; //RB1 COMO INPUT
+    TRISBbits.TRISB2 = 1; //RB2 COMO INPUT
     PORTB = 0;      //CLEAR DE PUERTO B
     
     TRISC = 0; //PORTC como OUTPUT
@@ -116,6 +117,7 @@ void setup(void){
     OPTION_REGbits.nRBPU = 0; // Se habilitan pull-up de PORTB
     WPUBbits.WPUB0 = 1; //Se habilita pull de RB0
     WPUBbits.WPUB1 = 1; //Se habilita pull de RB1
+    WPUBbits.WPUB2 = 1; //Se habilita pull de RB2
     
     
     //Config ADC
